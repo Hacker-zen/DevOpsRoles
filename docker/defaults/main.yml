@@ -1,0 +1,5 @@
+---
+docker_apt_key: "https://download.docker.com/linux/ubuntu/gpg"
+docker_repo: "https://download.docker.com/linux/ubuntu"
+cache_valid_time: 3600
+is_update_cache: true
