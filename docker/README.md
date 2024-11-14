@@ -1,17 +1,24 @@
 Role Name
 =========
 
-A brief description of the role goes here.
+This role is responsible for [describe purpose, e.g., installing and configuring Docker, setting up a web server, etc.].
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+List any prerequisites that are not managed by this role, such as specific OS versions, Ansible plugins, or external libraries (e.g., the boto library for AWS modules).
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+Here is a list of configurable variables in this role:
+
+>>Defaults: Variables from defaults/main.yml (include a brief description for each).
+>>Vars: Variables from vars/main.yml.
+>>Parameters: Variables you can set directly when calling the role.
+>>
+>>
+For each variable, explain usage and acceptable values. Mention any dependencies on global variables or other roles.
 
 Dependencies
 ------------
