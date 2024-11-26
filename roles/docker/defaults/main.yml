@@ -1,0 +1,6 @@
+---
+docker_apt_key: "https://download.docker.com/linux/ubuntu/gpg"
+docker_repo: "https://download.docker.com/linux/ubuntu"
+ansible_distribution_release: "bionic"
+cache_valid_time: 3600
+is_update_cache: true

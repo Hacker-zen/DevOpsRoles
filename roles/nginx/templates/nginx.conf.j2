@@ -1,0 +1,9 @@
+server {
+    listen {{ nginx_port }};
+    location / {
+        proxy_pass  http://192.168.56.201:{{ nginx_proxy_port }}/;
+    }
+    location /static/ {
+        alias {{ nginx_static_files }};
+  }
+}

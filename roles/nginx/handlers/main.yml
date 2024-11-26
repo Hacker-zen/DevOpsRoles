@@ -1,0 +1,26 @@
+---
+# handlers file for nginx
+
+- name: Validate Nginx config task
+  ansible.builtin.command:
+    cmd: nginx -t
+  register: config_check_result
+  ignore_errors: true
+  check_mode: false
+  changed_when: false
+  listen: Restart Nginx
+
+- name: Show Nginx error in syntax check fails
+  ansible.builtin.debug:
+    var: config_check_result
+  when:
+    - config_check_result['rc'] != 0
+  listen: Restart Nginx
+
+- name: Restart Nginx Service
+  ansible.builtin.service:
+    name: nginx
+    state: reloaded
+  when:
+    - config_check_result['rc'] == 0
+  listen: Restart Nginx

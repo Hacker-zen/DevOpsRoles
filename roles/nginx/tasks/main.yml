@@ -1,0 +1,25 @@
+---
+# tasks file for nginx
+
+- name: Install Nginx
+  ansible.builtin.apt:
+    name: nginx
+    state: present
+    update_cache: true
+  notify:
+    - Restart Nginx
+
+- name: Copy Nginx setup files
+  ansible.builtin.template:
+    src: "nginx.conf.j2"
+    dest: "/etc/nginx/sites-available/django"
+    mode: u=rw,g=r,o=r
+  notify:
+    - Restart Nginx
+
+- name: Delete default site
+  ansible.builtin.file:
+    path: "/etc/nginx/sites-enabled/default"
+    state: absent
+  notify:
+    - Restart Nginx
