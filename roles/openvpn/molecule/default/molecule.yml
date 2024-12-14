@@ -1,0 +1,7 @@
+---
+driver:
+  name: docker
+platforms:
+  - name: instance
+    image: eniocarboni/docker-ubuntu-systemd:latest
+    pre_build_image: true
