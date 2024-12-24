@@ -1,0 +1,8 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: Converge Install openvpn
+      ansible.builtin.include_role:
+        name: openvpn
+...

@@ -1,0 +1,46 @@
+---
+
+#Константы для сертификата
+easy_rsa_dir: "{{ ansible_env.HOME }}/easy-rsa"
+easy_rsa_binary: "/usr/share/easy-rsa"
+easy_rsa_vars_template: "templates/easy-rsa3.j2"
+easy_rsa_vars_COUNTRY: "RU"
+easy_rsa_vars_PROVINCE: "Saint-Petersburg"
+easy_rsa_vars_CITY: "Saint-Petersburg"
+easy_rsa_vars_ORG: "ITMO University"
+easy_rsa_vars_EMAIL: "pumkinisrat2018@gmail.com"
+easy_rsa_vars_OU: "Community"
+easy_rsa_vars_ALGO: "ec"
+easy_rsa_vars_DIGEST: "sha512"
+
+#Константы для сервера
+openvpn_server_port: 1194
+openvpn_server_proto: udp
+openvpn_server_dh: none
+openvpn_server_user: nobody
+openvpn_server_group: nogroup
+
+#Константы для клиента
+openvpn_server_cipher: |
+  cipher AES-256-GCM
+  auth SHA256
+openvpn_client_remote_port: 1194
+openvpn_client_extra: |
+  key-direction 1
+  script-security 2
+  up /etc/openvpn/update-resolv-conf
+  down /etc/openvpn/update-resolv-conf
+
+#Константы для openvpn_configuration.yaml client_certificates.yaml server_certificates.yaml
+openvpn_server_config_template: "templates/openvpn-server.conf.j2"
+openvpn_server_dir: "/etc/openvpn/server"
+client_configs_dir: "{{ ansible_env.HOME }}/client-configs"
+openvpn_client_name: "client1"
+openvpn_server_name: "server"
+openvpn_server_cert: "{{ openvpn_server_name }}.crt"
+openvpn_server_key: "{{ openvpn_server_name }}.key"
+openvpn_server_ca: ca.crt
+openvpn_server_tls_crypt: ta.key
+openvpn_client_config_template: "templates/openvpn-client.conf.j2"
+openvpn_client_remote: "{{ ansible_default_ipv4.address }}"
+openvpn_client_proto: udp
