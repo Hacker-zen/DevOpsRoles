@@ -1,9 +1,0 @@
----
-- name: "Установка и настройка сертификатов для клиента"
-  include_tasks: client_certificates.yaml
-
-- name: "Установка и настройка сертификатов для сервера"
-  include_tasks: server_certificates.yaml
-
-- name: "Дополнительная настройка сертификатов для сервера"
-  include_tasks: openvpn_configuration.yaml
